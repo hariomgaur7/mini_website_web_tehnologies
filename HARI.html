@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARI CAFE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+            color: #2c3e50;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5)), url('C:\Users\Rahasya\Desktop\HARI') no-repeat center center/cover;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .menu-item {
+            border: 2px solid #e0f2f1;
+            border-radius: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background-color: #f0fdf4;
+        }
+
+        .form-input {
+            border: 2px solid #e0f2f1;
+            background-color: #fff;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2c7760;
+        }
+
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 1.5rem 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .message-box.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Message Box for Form Submission -->
+    <div id="messageBox" class="message-box">
+        <p>Your message has been sent successfully!</p>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="bg-[#2c7760] text-white p-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold tracking-wide">HARI CAFE</a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#about" class="hover:underline hover:text-[#2c3e50] transition-colors">About</a>
+                <a href="#menu" class="hover:underline hover:text-[#2c3e50] transition-colors">Menu</a>
+                <a href="#gallery" class="hover:underline hover:text-[#2c3e50] transition-colors">Gallery</a>
+                <a href="#contact" class="hover:underline hover:text-[#2c3e50] transition-colors">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="md:hidden bg-[#2c7760] text-white absolute w-full z-40 hidden shadow-md">
+        <a href="#about" class="block py-3 px-6 hover:bg-[#1f5643] transition-colors">About</a>
+        <a href="#menu" class="block py-3 px-6 hover:bg-[#1f5643] transition-colors">Menu</a>
+        <a href="#gallery" class="block py-3 px-6 hover:bg-[#1f5643] transition-colors">Gallery</a>
+        <a href="#contact" class="block py-3 px-6 hover:bg-[#1f5643] transition-colors">Contact</a>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-bg h-[60vh] md:h-[80vh] flex flex-col justify-center items-center text-center text-white rounded-3xl overflow-hidden shadow-2xl mb-12">
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight drop-shadow-lg">
+                Your Daily Dose of Comfort
+            </h1>
+            <p class="mt-4 text-lg md:text-xl max-w-2xl drop-shadow-lg">
+                Delicious coffee, fresh pastries, and a warm atmosphere. Welcome to HARI CAFE.
+            </p>
+            <a href="#menu" class="mt-8 px-8 py-3 bg-[#e0f2f1] text-[#2c3e50] font-semibold rounded-full shadow-lg hover:bg-[#f8f8f8] transition-colors">
+                Explore Our Menu
+            </a>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-16">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="card p-8">
+                    <h2 class="text-4xl font-bold text-[#2c3e50] mb-4">Our Story</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Founded on a passion for quality and community, HARI CAFE is more than just a place to grab a coffee. We're a neighborhood hub where friendships are brewed and memories are made. We source the finest beans and use fresh, local ingredients to bring you simple, delicious pleasures every day.
+                    </p>
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-2xl">
+                    <img src="https://placehold.co/600x400/fff/34d399?text=Cozy+Interior" alt="Cozy Cafe Interior" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="py-16">
+            <h2 class="text-4xl font-bold text-center tracking-wider text-[#2c3e50] mb-12">Our Delicious Menu</h2>
+            <div id="menu-container" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Menu items will be dynamically inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-16">
+            <h2 class="text-4xl font-bold text-center tracking-wider text-[#2c3e50] mb-12">Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="rounded-2xl overflow-hidden shadow-md group">
+                    <img src="https://placehold.co/600x400/10b981/fff?text=Fresh+Pastries" alt="Fresh Pastries" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-md group">
+                    <img src="https://placehold.co/600x400/34d399/fff?text=Latte+Art" alt="Latte Art" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-md group">
+                    <img src="https://placehold.co/600x400/14532d/fff?text=Cozy+Seating" alt="Cozy Seating" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-md group">
+                    <img src="https://placehold.co/600x400/bbf7d0/14532d?text=Coffee+Beans" alt="Coffee Beans" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16">
+            <h2 class="text-4xl font-bold text-center tracking-wider text-[#2c3e50] mb-12">Get in Touch</h2>
+            <div class="card p-8 max-w-3xl mx-auto">
+                <p class="text-center text-gray-600 mb-8">
+                    Visit us at our charming location or send us a message!
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Contact Form -->
+                    <form id="contact-form" class="flex flex-col space-y-4">
+                        <input type="text" id="name" placeholder="Your Name" class="form-input p-3 rounded-xl" required>
+                        <input type="email" id="email" placeholder="Your Email" class="form-input p-3 rounded-xl" required>
+                        <textarea id="message" placeholder="Your Message" rows="5" class="form-input p-3 rounded-xl" required></textarea>
+                        <button type="submit" class="px-6 py-3 bg-[#2c3e50] text-white font-semibold rounded-full shadow-lg hover:bg-[#1a242f] transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                    <!-- Location Info & Map -->
+                    <div class="flex flex-col space-y-4">
+                        <div class="p-4 rounded-xl border border-gray-200">
+                            <h3 class="font-semibold text-lg mb-2">Location</h3>
+                            <p class="text-gray-600">In front of ITM University, Jhansi Road, Gwalior, Madhya Pradesh</p>
+                        </div>
+                        <div class="p-4 rounded-xl border border-gray-200">
+                            <h3 class="font-semibold text-lg mb-2">Hours</h3>
+                            <p class="text-gray-600">Mon-Fri: 7 AM - 9 PM</p>
+                            <p class="text-gray-600">Sat-Sun: 9 AM - 6 PM</p>
+                        </div>
+                        <a href="https://maps.google.com/?q=HARI+CAFE+Gwalior" target="_blank" class="w-full h-48 rounded-xl overflow-hidden shadow-md">
+                            <img src="https://placehold.co/600x400/2c7760/fff?text=Map+of+Gwalior" alt="Map of Gwalior" class="w-full h-full object-cover">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#2c3e50] text-[#e0f2f1] text-center p-8 mt-12">
+        <p>&copy; 2025 HARI CAFE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menu = {
+                'Coffee & Tea': [
+                    { name: 'Masala Chai', price: '₹50', description: 'Aromatic black tea brewed with a blend of spices and milk.' },
+                    { name: 'Filter Coffee', price: '₹60', description: 'Strong and authentic South Indian filter coffee.' },
+                    { name: 'Cold Coffee', price: '₹120', description: 'Chilled coffee blend with milk, sugar, and a hint of ice cream.' },
+                    { name: 'Ginger Tea', price: '₹50', description: 'A refreshing tea with a spicy kick of fresh ginger.' }
+                ],
+                'Snacks & Bites': [
+                    { name: 'Samosa', price: '₹40', description: 'Crispy pastry filled with spiced potatoes and peas.' },
+                    { name: 'Vada Pav', price: '₹50', description: 'Mumbai\'s favorite street food - a spicy potato fritter in a bun.' },
+                    { name: 'Aloo Tikki', price: '₹60', description: 'Spiced potato patties served with tangy chutneys.' },
+                    { name: 'Pakora Platter', price: '₹150', description: 'Assorted fried fritters with coriander and mint chutney.' }
+                ],
+                'Cool Beverages': [
+                    { name: 'Fresh Lime Soda', price: '₹70', description: 'A refreshing mix of fresh lime, soda, and a touch of salt or sugar.' },
+                    { name: 'Lassi', price: '₹80', description: 'A creamy and cooling yogurt-based drink, sweet or salted.' }
+                ]
+            };
+
+            const menuContainer = document.getElementById('menu-container');
+            
+            // Function to generate and insert menu items
+            function renderMenu() {
+                menuContainer.innerHTML = ''; // Clear existing content
+                for (const category in menu) {
+                    const categoryTitle = document.createElement('h3');
+                    categoryTitle.className = 'text-2xl font-semibold text-[#2c3e50] mt-8 mb-4 col-span-full';
+                    categoryTitle.textContent = category;
+                    menuContainer.appendChild(categoryTitle);
+
+                    menu[category].forEach(item => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = 'menu-item p-6 card flex flex-col justify-between';
+                        
+                        const contentDiv = document.createElement('div');
+                        contentDiv.innerHTML = `
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-lg">${item.name}</span>
+                                <span class="text-[#2c7760] font-bold">${item.price}</span>
+                            </div>
+                            <p class="text-sm text-gray-500">${item.description}</p>
+                        `;
+                        
+                        itemDiv.appendChild(contentDiv);
+                        menuContainer.appendChild(itemDiv);
+                    });
+                }
+            }
+
+            renderMenu();
+
+            // Mobile menu functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Hide mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Form submission handler
+            const contactForm = document.getElementById('contact-form');
+            const messageBox = document.getElementById('messageBox');
+            
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Show message box
+                messageBox.classList.add('show');
+                
+                // Hide message box after 3 seconds
+                setTimeout(() => {
+                    messageBox.classList.remove('show');
+                }, 3000);
+
+                // Reset the form
+                contactForm.reset();
+            });
+        });
+    </script>
+
+</body>
+</html>
